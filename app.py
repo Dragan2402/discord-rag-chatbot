@@ -44,4 +44,4 @@ async def get_response(ctx: SlashContext, question: str):
         await ctx.send("Unexpected error occurred, try again later")
 
 
-bot.start(os.getenv(EnvironmentKeys.DISCORD_BOT_ID.value))
+bot.start(os.getenv(EnvironmentKeys.DISCORD_BOT_TOKEN.value))

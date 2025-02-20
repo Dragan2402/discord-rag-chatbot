@@ -15,7 +15,7 @@ This is a Python-based Discord chatbot that leverages Retrieval-Augmented Genera
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.x (3.12 used in development process)
 - Docker & Docker Compose
 - Astra DB account
 - Discord bot token
@@ -30,6 +30,8 @@ This is a Python-based Discord chatbot that leverages Retrieval-Augmented Genera
    ```
 
 2. **Install dependencies**:
+
+   Recommend using venv
 
    ```bash
    pip install -r requirements.txt
