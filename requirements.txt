@@ -1,2 +1,8 @@
 interactions.py
 load_dotenv
+astrapy
+langchain-text-splitters
+langchain-astradb>=0.3.3
+langchain-openai
+langchain_community 
+pypdf
