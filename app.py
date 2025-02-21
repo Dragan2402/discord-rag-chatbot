@@ -11,12 +11,20 @@ from interactions import (
 )
 
 from helpers.env import EnvironmentKeys
+from infrastructure.services.openai_astra_rag_retrieval_service import (
+    OpenAiAstraRagRetrievalService,
+)
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 bot = Client(intents=Intents.ALL)
+
+
+service = OpenAiAstraRagRetrievalService()
+
+service.embed_files()
 
 
 @listen()
