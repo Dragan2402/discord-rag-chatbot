@@ -10,6 +10,7 @@ from interactions import (
     slash_option,
 )
 
+from helpers.arguments import extract_arguments
 from helpers.env import EnvironmentKeys
 from infrastructure.services.openai_astra_rag_retrieval_service import (
     OpenAiAstraRagRetrievalService,
@@ -21,10 +22,9 @@ logging.basicConfig(
 
 bot = Client(intents=Intents.ALL)
 
-
 service = OpenAiAstraRagRetrievalService()
 
-service.embed_files()
+seed_data, pre_delete_data = extract_arguments()
 
 
 @listen()
@@ -46,7 +46,8 @@ async def get_response(ctx: SlashContext, question: str):
     await ctx.defer()
     try:
         logging.info(f"Received input: {question}")
-        await ctx.send("This is echo: " + question)
+        answer = service.retrieve(question)
+        await ctx.send(answer)
     except Exception as e:
         logging.error(f"Error: {e}")
         await ctx.send("Unexpected error occurred, try again later")
