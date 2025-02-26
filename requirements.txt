@@ -6,3 +6,5 @@ langchain-astradb>=0.3.3
 langchain-openai
 langchain_community 
 pypdf
+langchain[openai]
+flashrank
