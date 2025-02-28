@@ -12,6 +12,9 @@ from interactions import (
 
 from helpers.arguments import extract_arguments
 from helpers.env import EnvironmentKeys
+from infrastructure.services.huggingface_astra_rag_retrieval_service import (
+    HuggingFaceAstraRagRetrievalService,
+)
 from infrastructure.services.openai_astra_rag_retrieval_service import (
     OpenAiAstraRagRetrievalService,
 )
@@ -25,6 +28,9 @@ bot = Client(intents=Intents.ALL)
 service = OpenAiAstraRagRetrievalService()
 
 seed_data, pre_delete_data = extract_arguments()
+
+if seed_data:
+    service.embed_files(pre_delete_data=pre_delete_data)
 
 
 @listen()
